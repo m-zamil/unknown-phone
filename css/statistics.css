@@ -1,0 +1,35 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+body {
+  font-family: "Montserrat", sans-serif;
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  font-family: "Montserrat", sans-serif;
+}
+
+/*Hero title styles*/
+.hero {
+  text-align: center;
+  padding: 0 16px;
+}
+.hero__title {
+  font-size: 2rem;
+  font-weight: bold;
+}
+.hero__title__underline {
+  background-color: #1dd7c4;
+  width: 120px;
+  height: 14px;
+  margin: 0 auto;
+}
+
+.hero__text {
+  color: #808080;
+  font-size: 1rem;
+}
