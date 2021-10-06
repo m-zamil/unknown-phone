@@ -307,7 +307,7 @@ body {
 }
 .contact__wrapper {
   background-color: #00cfc9;
-  padding: 50px 0;
+  padding: 38px 0;
 }
 .contact__wrapper p {
   color: #221f49;
@@ -405,7 +405,7 @@ body {
     font-size: 2.5rem;
   }
   .section__text {
-    max-width: 750px;
+    max-width: 650px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -432,10 +432,13 @@ body {
     flex: 1;
   }
   .card__green:last-child {
-    margin-left: 20px;
+    margin-left: 10px;
   }
   .chart {
-    padding-top: 5rem;
+    padding-top: 2rem;
+    max-width: 90%;
+    margin: 0 auto;
+    margin-bottom: 32px;
   }
   .myChart {
     max-width: 90%;
@@ -446,10 +449,10 @@ body {
 
   .chart__title {
     max-width: 90%;
-    padding: 2rem 4rem;
+    padding: 2rem 5rem;
   }
   .calls__received__wrapper {
-    padding-bottom: 100px;
+    padding-bottom: 24px;
   }
   .hotspot__maps__area {
     display: flex;
@@ -459,7 +462,7 @@ body {
     order: 2;
   }
   .hotspot__maps__bar .progress__bar {
-    margin-left: 8px;
+    margin-left: 14px;
     flex: 1;
   }
 
