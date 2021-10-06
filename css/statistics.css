@@ -23,19 +23,19 @@ body {
   text-align: center;
 }
 .section__title {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   font-weight: bold;
 }
 .section__title__underline {
   background-color: #1dd7c4;
   width: 120px;
-  height: 12px;
+  height: 10px;
   margin: 0 auto;
 }
 
 .section__text {
   color: #808080;
-  font-size: 14px;
+  font-size: 12px;
   padding: 20px 0;
 }
 .card__section__wrapper {
@@ -47,10 +47,10 @@ body {
   padding: 22px 26px;
   padding-bottom: 0;
   max-width: 320px;
-  margin: 20px auto;
+  margin: 10px auto;
 }
 .card__title {
-  font-size: 22px;
+  font-size: 18px;
   margin: 10px 0;
   margin-bottom: 0;
 }
@@ -90,6 +90,9 @@ body {
   justify-content: space-between;
   align-items: center;
 }
+.card__green__wrapper {
+  padding-bottom: 48px;
+}
 .card__green {
   background-color: #004948;
   color: white;
@@ -111,10 +114,10 @@ body {
 }
 .comments__written__wrapper {
   background-color: #f6f6f6;
-  padding: 50px 0;
+  padding: 22px 0;
 }
 .hotspot__maps__wrapper {
-  padding: 50px 0;
+  padding: 22px 0;
   padding-bottom: 100px;
   counter-reset: list-marker;
 }
@@ -131,6 +134,7 @@ body {
   position: relative;
   width: 308px;
   height: 445px;
+  margin: 0 auto;
 }
 .circle {
   width: 100%;
@@ -267,6 +271,7 @@ body {
   position: relative;
   padding-top: 16px;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
 }
 
@@ -278,13 +283,14 @@ body {
   flex: 1;
   height: 8px;
   background-color: #e6e6e6;
-  margin-left: 8px;
+  margin-left: 0;
+  flex-basis: 100%;
 }
 .hotspot__maps__bar .progress {
   background-color: #1dd7c4;
   height: 8px;
 }
-.hotspot__maps__bar li::before {
+.hotspot__maps__bar li label::before {
   counter-increment: list-marker;
   content: counter(list-marker) ".  ";
   font-weight: bold;
@@ -322,8 +328,13 @@ body {
   line-height: 1;
   margin-top: 32px;
 }
+.chart {
+  padding: 28px 16px;
+  background: white;
+  margin-bottom: 24px;
+}
 .chart__wrapper {
-  max-width: 90%;
+  max-width: 100%;
   margin: 0 auto;
   max-height: 200px;
   height: 200px;
@@ -331,10 +342,10 @@ body {
 .chart__wrapper > :first-child {
   margin: 0 auto;
   height: 100%;
-  width: 90%;
+  width: 100%;
 }
 .myChart {
-  max-width: 90%;
+  max-width: 100%;
   max-height: 200px;
 }
 .arrow_box {
@@ -422,6 +433,12 @@ body {
   .chart {
     padding-top: 5rem;
   }
+  .myChart {
+    max-width: 90%;
+  }
+  .chart__wrapper {
+    max-width: 90%;
+  }
 
   .chart__title {
     max-width: 90%;
@@ -437,6 +454,11 @@ body {
   .hotspot__maps__map {
     order: 2;
   }
+  .hotspot__maps__bar .progress__bar {
+    margin-left: 8px;
+    flex: 1;
+  }
+
   .hotspot__maps__bar {
     max-width: 40%;
     flex: 1;
@@ -449,6 +471,7 @@ body {
     align-items: flex-end;
     justify-content: left;
     text-align: left;
+    max-width: 90%;
   }
   .contact.section div:first-child {
     flex-shrink: 1;
