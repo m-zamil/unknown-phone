@@ -273,6 +273,8 @@ body {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  padding-top: 0;
+  margin-top: 16px;
 }
 
 .hotspot__maps__bar ol li label {
@@ -310,6 +312,7 @@ body {
 .contact__wrapper p {
   color: #221f49;
   max-width: 600px;
+  padding: 0;
 }
 .contact__wrapper .section__title {
   font-size: 2.5rem;
@@ -327,6 +330,7 @@ body {
   border-radius: 6px;
   line-height: 1;
   margin-top: 32px;
+  margin-top: 16px;
 }
 .chart {
   padding: 28px 16px;
@@ -466,6 +470,11 @@ body {
     padding-top: 30px;
   }
 
+  .hotspot__maps__bar li {
+    padding-top: 16px;
+    margin-top: 0;
+  }
+
   .contact.section {
     display: flex;
     align-items: flex-end;
@@ -478,5 +487,11 @@ body {
   }
   .contact.section .section__text {
     margin-top: 4px;
+  }
+  .contact__wrapper p {
+    padding: 20px 0;
+  }
+  .contact__btn {
+    margin-top: 32px;
   }
 }
