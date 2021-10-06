@@ -10,16 +10,332 @@
     <link rel="stylesheet" href="./fonts/Montserrat-Bold.ttf" />
 
     <link rel="stylesheet" href="./css/statistics.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.min.js" integrity="sha512-Wt1bJGtlnMtGP0dqNFH1xlkLBNpEodaiQ8ZN5JLA5wpc1sUlk/O5uuOMNgvzddzkpvZ9GLyYNa8w2s7rqiTk5Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   </head>
   <body>
     <main>
-      <section class="hero__wrapper">
-        <div class="hero">
-          <h1 class="hero__title">STATISTICS PREVIEW</h1>
-          <div class="hero__title__underline"></div>
-          <p class="hero__text">Track and monitor phone calls in real time. Our sparkline charts are dynamically generated based on frequently detected keywords over the past 24 hours, there’ no need to refresh this page. Click to discover the latest real data.</p>
+      <section class="hero__wrapper container">
+        <div class="hero section">
+          <h1 class="section__title">STATISTICS PREVIEW</h1>
+          <div class="section__title__underline"></div>
+          <p class="section__text">Track and monitor phone calls in real time. Our sparkline charts are dynamically generated based on frequently detected keywords over the past 24 hours, there’ no need to refresh this page. Click to discover the latest real data.</p>
+        </div>
+        <div class="card__section__wrapper">
+          <div class="card__wrapper">
+            <img src="./images/amazon-logo.png" alt="Amazon logo" />
+            <h2 class="card__title">Amazon Call Activity</h2>
+            <p class="card__text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit,</p>
+            <div class="card__graph"><img src="https://quickchart.io/chart?bkg=rgb(29,215,196)&c={type:'sparkline',data:{datasets:[{data:[0,5,5,10,8,9,8,15,6,7,6,9,3,6,3,7,8,7,8,0],borderColor:'transparent',backgroundColor: 'rgb(188,243,237)',lineTension: 1 ,cubicInterpolationMode: 'monotone'}]}}" alt="Statistics graph" /></div>
+          </div>
+          <div class="card__wrapper">
+            <img src="./images/amazon-logo.png" alt="Amazon logo" />
+            <h2 class="card__title">Amazon Call Activity</h2>
+            <p class="card__text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit,</p>
+            <div class="card__graph"><img src="https://quickchart.io/chart?bkg=rgb(29,215,196)&c={type:'sparkline',data:{datasets:[{data:[0,5,5,10,8,9,8,15,6,7,6,9,3,6,3,7,8,7,8,0],borderColor:'transparent',backgroundColor: 'rgb(188,243,237)',lineTension: 1 ,cubicInterpolationMode: 'monotone'}]}}" alt="Statistics graph" /></div>
+          </div>
+          <div class="card__wrapper">
+            <img src="./images/amazon-logo.png" alt="Amazon logo" />
+            <h2 class="card__title">Amazon Call Activity</h2>
+            <p class="card__text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit,</p>
+            <div class="card__graph"><img src="https://quickchart.io/chart?bkg=rgb(29,215,196)&c={type:'sparkline',data:{datasets:[{data:[0,5,5,10,8,9,8,15,6,7,6,9,3,6,3,7,8,7,8,0],borderColor:'transparent',backgroundColor: 'rgb(188,243,237)',lineTension: 1 ,cubicInterpolationMode: 'monotone'}]}}" alt="Statistics graph" /></div>
+          </div>
+        </div>
+        <div class="gauge__meter">
+          <img width="100px" src="./images/gauge.svg" alt="" />
+          <div>
+            <p class="gauge__meter__text">User reports indicate high activity now!</p>
+          </div>
+        </div>
+      </section>
+      <section class="calls__received__wrapper">
+        <div class="calls__received section">
+          <h1 class="section__title">CALLS RECEIVED</h1>
+          <div class="section__title__underline"></div>
+          <p class="section__text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in</p>
+        </div>
+        <div class="card__green__wrapper">
+          <div class="card__green">
+            <div class="card__green__title">
+              <p class="h2">12</p>
+              <img src="./images/clock.svg" alt="" width="30" />
+            </div>
+            <div class="card__green__text">
+              <p>Calls Received in the past 24h</p>
+            </div>
+          </div>
+          <div class="card__green">
+            <div class="card__green__title">
+              <p class="h2">1280</p>
+              <img src="./images/calender.svg" alt="" width="30" />
+            </div>
+            <div class="card__green__text">
+              <p>Calls received in the past 30 days</p>
+            </div>
+          </div>
+        </div>
+        <div class="chart chart_1 section">
+          <h2 class="chart__title">Call in past 24</h2>
+          <div class="chart__wrapper">
+            <canvas id="myChart_1" class="myChart"></canvas>
+          </div>
+        </div>
+        <div class="chart chart_2 section">
+          <h2 class="chart__title">Call in 30 Days</h2>
+          <div class="chart__wrapper">
+            <canvas id="myChart_2" class="myChart"></canvas>
+          </div>
+        </div>
+      </section>
+      <section class="comments__written__wrapper">
+        <div class="comments__written section container">
+          <h1 class="section__title">COMMENTS WRITTEN</h1>
+          <div class="section__title__underline"></div>
+          <p class="section__text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation</p>
+        </div>
+
+        <div class="card__green__wrapper container">
+          <div class="card__green">
+            <div class="card__green__title">
+              <p class="h2">12</p>
+              <img src="./images/clock.svg" alt="" width="30" />
+            </div>
+            <div class="card__green__text">
+              <p>Comments in the past 24h</p>
+            </div>
+          </div>
+          <div class="card__green">
+            <div class="card__green__title">
+              <p class="h2">1280</p>
+              <img src="./images/calender.svg" alt="" width="30" />
+            </div>
+            <div class="card__green__text">
+              <p>Comments in the past 30 days</p>
+            </div>
+          </div>
+        </div>
+        <div class="chart chart_3 section">
+          <h2 class="chart__title">Comments in past 24</h2>
+          <div class="chart__wrapper">
+            <canvas id="myChart_3" class="myChart"></canvas>
+          </div>
+        </div>
+        <div class="chart chart_4 section">
+          <h2 class="chart__title">Comments in 30 days</h2>
+          <div class="chart__wrapper">
+            <canvas id="myChart_4" class="myChart"></canvas>
+          </div>
+        </div>
+      </section>
+      <section class="hotspot__maps__wrapper container">
+        <div class="hotspot__maps section">
+          <h1 class="section__title">REPORTS HOT SPOT MAP</h1>
+          <div class="section__title__underline"></div>
+          <p class="section__text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation</p>
+        </div>
+        <div class="hotspot__maps__area">
+          <div class="hotspot__maps__map">
+            <div class="hotspot__maps__region__wrapper">
+              <img src="./images/map.png" alt="" />
+              <span class="circle circle-1">
+                <div class="circle__popup">
+                  <h2>12 Calls</h2>
+                  <p>London, UK</p>
+                </div>
+              </span>
+
+              <span class="circle circle-2">
+                <div class="circle__popup">
+                  <h2>13 Calls</h2>
+                  <p>London, UK</p>
+                </div>
+              </span>
+
+              <span class="circle circle-3">
+                <div class="circle__popup">
+                  <h2>11 Calls</h2>
+                  <p>London, UK</p>
+                </div>
+              </span>
+
+              <span class="circle circle-4">
+                <div class="circle__popup">
+                  <h2>09 Calls</h2>
+                  <p>London, UK</p>
+                </div>
+              </span>
+
+              <span class="circle circle-5">
+                <div class="circle__popup">
+                  <h2>06 Calls</h2>
+                  <p>London, UK</p>
+                </div>
+              </span>
+
+              <span class="circle circle-6">
+                <div class="circle__popup">
+                  <h2>01 Calls</h2>
+                  <p>London, UK</p>
+                </div>
+              </span>
+
+              <span class="circle circle-7">
+                <div class="circle__popup">
+                  <h2>7 Calls</h2>
+                  <p>London, UK</p>
+                </div>
+              </span>
+
+              <span class="circle circle-8">
+                <div class="circle__popup">
+                  <h2>10 Calls</h2>
+                  <p>London, UK</p>
+                </div>
+              </span>
+
+              <span class="circle circle-9">
+                <div class="circle__popup">
+                  <h2>11 Calls</h2>
+                  <p>London, UK</p>
+                </div>
+              </span>
+
+              <span class="circle circle-10">
+                <div class="circle__popup">
+                  <h2>12 Calls</h2>
+                  <p>London, UK</p>
+                </div>
+              </span>
+
+              <span class="circle circle-11">
+                <div class="circle__popup">
+                  <h2>12 Calls</h2>
+                  <p>London, UK</p>
+                </div>
+              </span>
+
+              <span class="circle circle-12">
+                <div class="circle__popup">
+                  <h2>12 Calls</h2>
+                  <p>London, UK</p>
+                </div>
+              </span>
+
+              <span class="circle circle-13">
+                <div class="circle__popup">
+                  <h2>12 Calls</h2>
+                  <p>London, UK</p>
+                </div>
+              </span>
+
+              <span class="circle circle-14">
+                <div class="circle__popup">
+                  <h2>12 Calls</h2>
+                  <p>London, UK</p>
+                </div>
+              </span>
+
+              <span class="circle circle-15">
+                <div class="circle__popup">
+                  <h2>12 Calls</h2>
+                  <p>London, UK</p>
+                </div>
+              </span>
+
+              <span class="circle circle-16">
+                <div class="circle__popup">
+                  <h2>12 Calls</h2>
+                  <p>London, UK</p>
+                </div>
+              </span>
+
+              <span class="circle circle-17">
+                <div class="circle__popup">
+                  <h2>12 Calls</h2>
+                  <p>London, UK</p>
+                </div>
+              </span>
+            </div>
+          </div>
+          <div class="hotspot__maps__bar">
+            <ol>
+              <li>
+                <label for="file">City Name</label>
+                <div class="progress__bar">
+                  <div class="progress" style="width: 66%"></div>
+                </div>
+                <span>2 Reports</span>
+              </li>
+              <br />
+              <li>
+                <label for="file">City Name</label>
+                <div class="progress__bar">
+                  <div class="progress" style="width: 33%"></div>
+                </div>
+                <span>1 Reports</span>
+              </li>
+              <br />
+              <li>
+                <label for="file">City Name</label>
+                <div class="progress__bar">
+                  <div class="progress" style="width: 100%"></div>
+                </div>
+                <span>3 Reports</span>
+              </li>
+              <br />
+              <li>
+                <label for="file">City Name</label>
+                <div class="progress__bar">
+                  <div class="progress" style="width: 25%"></div>
+                </div>
+                <span>1 Reports</span>
+              </li>
+              <br />
+              <li>
+                <label for="file">City Name</label>
+                <div class="progress__bar">
+                  <div class="progress" style="width: 50%"></div>
+                </div>
+                <span>2 Reports</span>
+              </li>
+              <br />
+              <li>
+                <label for="file">City Name</label>
+                <div class="progress__bar">
+                  <div class="progress" style="width: 90%"></div>
+                </div>
+                <span>2 Reports</span>
+              </li>
+              <br />
+              <li>
+                <label for="file">City Name</label>
+                <div class="progress__bar">
+                  <div class="progress" style="width: 25%"></div>
+                </div>
+                <span>2 Reports</span>
+              </li>
+              <br />
+              <li>
+                <label for="file">City Name</label>
+                <div class="progress__bar">
+                  <div class="progress" style="width: 75%"></div>
+                </div>
+                <span>2 Reports</span>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </section>
+      <section class="contact__wrapper">
+        <div class="contact section container">
+          <div>
+            <h1 class="section__title">CONTACT US</h1>
+            <p class="section__text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad</p>
+          </div>
+          <div class="contact__btn">Contact us</div>
         </div>
       </section>
     </main>
+
+    <script src="./js/statistics.js"></script>
   </body>
 </html>
