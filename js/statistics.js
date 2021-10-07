@@ -1,17 +1,32 @@
-var dt = new Date();
-var month = dt.getMonth() + 1;
-var year = dt.getFullYear();
-var daysInMonth = new Date(year, month, 0).getDate();
-console.log(daysInMonth);
+//getting days in current month
+let dt = new Date();
+let currentMonth = dt.getMonth() + 1;
+let year = dt.getFullYear();
+let daysInMonth = new Date(year, currentMonth, 0).getDate();
 
 const range = (min, max) => [...Array(max - min + 1).keys()].map((i) => i + min + "");
+
 const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+const nth = function (d) {
+  if (d > 3 && d < 21) return "th";
+  switch (d % 10) {
+    case 1:
+      return "st";
+    case 2:
+      return "nd";
+    case 3:
+      return "rd";
+    default:
+      return "th";
+  }
+};
 
 //Labels for charts
 const labels_1 = ["08am", "10am", "12pm", "2pm", "4pm", "6pm", "8pm", "10pm", "12am", "2am"];
 const labels_2 = range(1, daysInMonth);
 const labels_3 = ["08am", "10am", "12pm", "2pm", "4pm", "6pm", "8pm", "10pm", "12am", "2am"];
-const labels_4 = ["08am", "10am", "12pm", "2pm", "4pm", "6pm", "8pm", "10pm", "12am", "2am"];
+const labels_4 = range(1, daysInMonth);
 
 //Data for charts
 //data_1
@@ -51,7 +66,7 @@ const data_2 = {
 
 //data_3
 const data_3 = {
-  labels: labels_1,
+  labels: labels_3,
   datasets: [
     {
       backgroundColor: "#29d9c7",
@@ -68,12 +83,12 @@ const data_3 = {
 };
 //date_4
 const data_4 = {
-  labels: labels_1,
+  labels: labels_4,
   datasets: [
     {
       backgroundColor: "#29d9c7",
       borderColor: "#29d9c7",
-      data: [4, 6, 4, 13, 5, 9, 12, 4, 11, 2],
+      data: [, 4, 5, 6, 6, 8, 5, 4, 7, 10, 13, 12, 4, 5, 6, 6, 8, 5, 4, 7, 10, 13, 12, 3, 5, 10, 10, 13, 12, 5, ,],
       lineTension: 0.5,
       pointBorderColor: "#29d9c7",
       pointBackgroundColor: "white",
@@ -87,13 +102,13 @@ const data_4 = {
 //External tooltip for charts
 const getOrCreateTooltip = (chart) => {
   let tooltipEl = chart.canvas.parentNode.querySelector("div");
-
   if (!tooltipEl) {
     tooltipEl = document.createElement("div");
     tooltipEl.style.transform = "translate(-50%, calc(-100% + -25px)";
     tooltipEl.classList.add("arrow_box");
-    const table = document.createElement("table");
-    tooltipEl.appendChild(table);
+    const tooltipElement = document.createElement("div");
+    tooltipElement.classList.add("tooltip__wrapper");
+    tooltipEl.appendChild(tooltipElement);
     chart.canvas.parentNode.appendChild(tooltipEl);
   }
   return tooltipEl;
@@ -102,8 +117,8 @@ const getOrCreateTooltip = (chart) => {
 const externalTooltipHandler = (context) => {
   // Tooltip Element
   const { chart, tooltip } = context;
-  const tooltipEl = getOrCreateTooltip(chart);
 
+  const tooltipEl = getOrCreateTooltip(chart);
   // Hide if no tooltip
   if (tooltip.opacity === 0) {
     tooltipEl.style.opacity = 0;
@@ -112,63 +127,41 @@ const externalTooltipHandler = (context) => {
 
   // Set Text
   if (tooltip.body) {
-    const titleLines = tooltip.title || [];
-    const bodyLines = tooltip.body.map((b) => b.lines);
-    console.log(bodyLines);
+    const titleLines = tooltip.body.map((b) => b.lines);
+    const bodyLines = tooltip.title || [];
+    const tooltipHeader = document.createElement("div");
+    const tooltipFooter = document.createElement("div");
 
-    const tableHead = document.createElement("thead");
-
-    titleLines.forEach((title) => {
-      const tr = document.createElement("tr");
-      tr.style.borderWidth = 0;
-
-      const th = document.createElement("th");
-      th.style.borderWidth = 0;
-      th.style.fontWeight = "400";
-      th.style.fontSize = "12px";
-      const text = document.createTextNode(title);
-
-      th.appendChild(text);
-      tr.appendChild(th);
-      tableHead.appendChild(tr);
+    bodyLines.forEach((title) => {
+      const footerText = document.createElement("p");
+      if (tooltip.beforeBody.length) {
+        footerText.textContent = title + tooltip.beforeBody[0] + " " + MONTHS[currentMonth];
+      } else footerText.textContent = title;
+      footerText.classList.add("tooltip__text");
+      const bodyText = document.createElement("p");
+      bodyText.classList.add("tooltip__text");
+      bodyText.textContent = tooltip.afterBody;
+      tooltipFooter.appendChild(bodyText);
+      tooltipFooter.appendChild(footerText);
     });
 
-    const tableBody = document.createElement("tbody");
-    bodyLines.forEach((body, i) => {
-      const span = document.createElement("span");
-      span.classList.add("tooltip__text");
-      span.textContent = "Calls received at";
-      const tr = document.createElement("tr");
-      const tr2 = document.createElement("tr");
-      tr.style.fontWeight = "bold";
-      tr.style.fontSize = "18px";
-
-      tr.style.backgroundColor = "inherit";
-      tr.style.borderWidth = 0;
-
-      const td = document.createElement("td");
-      td.style.borderWidth = 0;
-
-      const text = document.createTextNode(body);
-
-      // td.appendChild(span);
-      tr2.appendChild(span);
-      td.appendChild(text);
-      tr.appendChild(td);
-      tableBody.appendChild(tr);
-      tableBody.appendChild(tr2);
+    titleLines.forEach((body, i) => {
+      const title = document.createElement("h2");
+      title.textContent = body[0];
+      title.classList.add("tooltip__title");
+      tooltipHeader.appendChild(title);
     });
 
-    const tableRoot = tooltipEl.querySelector("table");
+    const tooltipRoot = tooltipEl.querySelector("div");
 
     // Remove old children
-    while (tableRoot.firstChild) {
-      tableRoot.firstChild.remove();
+    while (tooltipRoot.firstChild) {
+      tooltipRoot.firstChild.remove();
     }
 
     // Add new children
-    tableRoot.appendChild(tableHead);
-    tableRoot.appendChild(tableBody);
+    tooltipRoot.appendChild(tooltipHeader);
+    tooltipRoot.appendChild(tooltipFooter);
   }
 
   const { offsetLeft: positionX, offsetTop: positionY } = chart.canvas;
@@ -234,10 +227,16 @@ const config_1 = {
       },
       tooltip: {
         mode: "nearest",
+        date: "it is true",
         intersect: false,
         enabled: false,
         position: "nearest",
         external: externalTooltipHandler,
+        callbacks: {
+          afterBody: function () {
+            return "Calls received at";
+          },
+        },
       },
       hover: {
         mode: "nearest",
@@ -309,6 +308,14 @@ const config_2 = {
         enabled: false,
         position: "nearest",
         external: externalTooltipHandler,
+        callbacks: {
+          afterBody: function () {
+            return "Calls received on";
+          },
+          beforeBody: function (tooltip) {
+            return nth(tooltip[0].label);
+          },
+        },
       },
       hover: {
         mode: "nearest",
@@ -380,6 +387,11 @@ const config_3 = {
         enabled: false,
         position: "nearest",
         external: externalTooltipHandler,
+        callbacks: {
+          afterBody: function () {
+            return "Comments at";
+          },
+        },
       },
       hover: {
         mode: "nearest",
@@ -450,7 +462,16 @@ const config_4 = {
         intersect: false,
         enabled: false,
         position: "nearest",
+        date: true,
         external: externalTooltipHandler,
+        callbacks: {
+          afterBody: function () {
+            return "Comments on ";
+          },
+          beforeBody: function (tooltip) {
+            return nth(tooltip[0].label);
+          },
+        },
       },
       hover: {
         mode: "nearest",
@@ -465,7 +486,7 @@ const config_4 = {
   },
 };
 
-var myChart_1 = new Chart(document.getElementById("myChart_1"), config_1);
-var myChart_2 = new Chart(document.getElementById("myChart_2"), config_2);
-var myChart_3 = new Chart(document.getElementById("myChart_3"), config_3);
-var myChart_4 = new Chart(document.getElementById("myChart_4"), config_4);
+let myChart_1 = new Chart(document.getElementById("myChart_1"), config_1);
+let myChart_2 = new Chart(document.getElementById("myChart_2"), config_2);
+let myChart_3 = new Chart(document.getElementById("myChart_3"), config_3);
+let myChart_4 = new Chart(document.getElementById("myChart_4"), config_4);

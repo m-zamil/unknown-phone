@@ -1,3 +1,7 @@
+:root {
+  --aqua: #1dd7c4;
+  --green: #004948;
+}
 *,
 *::after,
 *::before {
@@ -27,7 +31,7 @@ body {
   font-weight: bold;
 }
 .section__title__underline {
-  background-color: #1dd7c4;
+  background-color: var(--aqua);
   width: 120px;
   height: 10px;
   margin: 0 auto;
@@ -43,7 +47,7 @@ body {
 }
 
 .card__wrapper {
-  background-color: #1dd7c4;
+  background-color: var(--aqua);
   padding: 22px 26px;
   padding-bottom: 0;
   max-width: 320px;
@@ -94,7 +98,7 @@ body {
   padding-bottom: 48px;
 }
 .card__green {
-  background-color: #004948;
+  background-color: var(--green);
   color: white;
   max-width: 320px;
   margin: 0 auto;
@@ -149,7 +153,7 @@ body {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background-color: #004948;
+  background-color: var(--green);
   display: inline-block;
   position: absolute;
   transition: all 0.2s;
@@ -289,7 +293,7 @@ body {
   flex-basis: 100%;
 }
 .hotspot__maps__bar .progress {
-  background-color: #1dd7c4;
+  background-color: var(--aqua);
   height: 8px;
 }
 .hotspot__maps__bar li label::before {
@@ -355,7 +359,7 @@ body {
 .arrow_box {
   padding: 6px 20px 10px !important;
   border-radius: 10px;
-  background: #004948;
+  background: var(--green);
   color: white;
   opacity: 1;
   width: auto;
@@ -365,7 +369,7 @@ body {
   transition: all 0.1s ease;
 }
 .arrow_box:after {
-  top: 100%;
+  top: 98%;
   left: 50%;
   border: solid transparent;
   content: "";
@@ -374,26 +378,24 @@ body {
   position: absolute;
   pointer-events: none;
   border-color: rgba(0, 73, 72, 0);
-  border-top-color: #004948;
+  border-top-color: var(--green);
   border-width: 10px;
   margin-left: -10px;
 }
-.arrow_box table {
-  margin: 0;
-  width: 100%;
-  display: flex;
-  flex-direction: column-reverse;
-  align-items: center;
-}
 
 .tooltip__text {
-  display: inline-block;
   font-size: 12px;
+  margin: 5px 0;
+}
+.tooltip__title {
+  margin: 5px 0;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .chart__title {
   font-weight: bold;
-  color: #004948;
+  color: var(--green);
   text-align: left;
   margin: 0 auto;
   padding-bottom: 20px;
@@ -405,9 +407,10 @@ body {
     font-size: 2.5rem;
   }
   .section__text {
-    max-width: 650px;
     margin-left: auto;
     margin-right: auto;
+    max-width: 740px;
+    font-size: 14px;
   }
   .hero .section__title {
     padding-top: 100px;
