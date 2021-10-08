@@ -446,6 +446,7 @@ body {
     padding-top: 2rem;
     margin: 0 auto;
     margin-bottom: 32px;
+    max-width: 80%;
   }
   .myChart {
     max-width: 90%;
