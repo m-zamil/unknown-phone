@@ -359,6 +359,7 @@ body {
 }
 .myChart {
   max-width: 100%;
+  min-width: 100%;
   max-height: 200px;
 }
 .arrow_box {
