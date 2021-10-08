@@ -490,3 +490,19 @@ let myChart_1 = new Chart(document.getElementById("myChart_1"), config_1);
 let myChart_2 = new Chart(document.getElementById("myChart_2"), config_2);
 let myChart_3 = new Chart(document.getElementById("myChart_3"), config_3);
 let myChart_4 = new Chart(document.getElementById("myChart_4"), config_4);
+
+/* Chart js end*/
+
+//Progress Bar data
+const bar__data = [10, 40, 30, 70, 90, 10, 110, 140];
+let maxReports = Math.max(...bar__data);
+maxReports += maxReports * 0.1;
+
+console.log(maxReports);
+const barPercentage = bar__data.map((cityReportsCount) => Math.round((cityReportsCount / maxReports) * 100));
+
+const reports = document.getElementsByClassName("progress");
+
+for (i = 0; i < reports.length; i++) {
+  reports[i].setAttribute("style", `width:${barPercentage[i]}%`);
+}

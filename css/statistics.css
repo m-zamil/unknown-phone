@@ -314,6 +314,10 @@ body {
   background-color: #00cfc9;
   padding: 38px 0;
 }
+.contact__wrapper .container {
+  padding: 0 40px;
+  text-align: center;
+}
 .contact__wrapper p {
   color: #221f49;
   max-width: 600px;
@@ -331,7 +335,6 @@ body {
   font-weight: bold;
   padding: 18px 48px;
   display: inline-block;
-  margin: 0 auto;
   border-radius: 6px;
   line-height: 1;
   margin-top: 32px;
@@ -341,6 +344,7 @@ body {
   padding: 28px 16px;
   background: white;
   margin-bottom: 24px;
+  box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.05);
 }
 .chart__wrapper {
   max-width: 100%;
@@ -440,7 +444,6 @@ body {
   }
   .chart {
     padding-top: 2rem;
-    max-width: 90%;
     margin: 0 auto;
     margin-bottom: 32px;
   }
@@ -483,13 +486,21 @@ body {
     margin-top: 0;
   }
 
-  .contact.section {
+  .contact {
     display: flex;
-    align-items: flex-end;
-    justify-content: left;
+    align-items: center;
+    justify-content: space-between;
     text-align: left;
     max-width: 90%;
   }
+  .contact .contact__btn {
+    flex-shrink: 0;
+    margin-left: 10px;
+  }
+  .contact__wrapper .container {
+    text-align: left;
+  }
+
   .contact.section div:first-child {
     flex-shrink: 1;
   }
@@ -498,8 +509,5 @@ body {
   }
   .contact__wrapper p {
     padding: 20px 0;
-  }
-  .contact__btn {
-    margin-top: 32px;
   }
 }
