@@ -157,9 +157,11 @@ body {
   position: absolute;
   transition: all 0.2s;
 }
+.circle.big:after {
+  transform: scale(3);
+}
 .circle:hover::after {
   cursor: pointer;
-  transform: scale(3);
 }
 .circle__popup {
   background-color: #00cfc9;
@@ -444,6 +446,7 @@ body {
   }
   .myChart {
     max-width: 90%;
+    min-width: 90%;
   }
   .chart__wrapper {
     max-width: 90%;
