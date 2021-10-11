@@ -13,7 +13,7 @@ body {
   margin: 0;
   padding: 0;
 }
-.container {
+.wrapper {
   max-width: 1325px;
   margin: 0 auto;
 }
@@ -314,7 +314,7 @@ body {
   background-color: #00cfc9;
   padding: 38px 0;
 }
-.contact__wrapper .container {
+.contact__wrapper .wrapper {
   padding: 0 40px;
   text-align: center;
 }
@@ -448,6 +448,7 @@ body {
     margin-bottom: 32px;
     max-width: 80%;
     box-shadow: 3px 3px 3px 3px rgb(0, 0, 0, 0.05);
+    max-width: 1325px;
   }
 
   .myChart {
@@ -500,7 +501,7 @@ body {
     flex-shrink: 0;
     margin-left: 10px;
   }
-  .contact__wrapper .container {
+  .contact__wrapper .wrapper {
     text-align: left;
   }
 
