@@ -468,14 +468,14 @@ h1.section__title {
   }
 
   .hotspot__maps__bar {
-    max-width: 45%;
+    max-width: 40%;
 
     flex: 1;
     padding-top: 30px;
   }
 
   .hotspot__maps__bar li {
-    padding-top: 16px;
+    padding-top: 8px;
     margin-top: 0;
   }
 
