@@ -18,14 +18,14 @@ body {
   margin: 0 auto;
 }
 
-.hero .section__title {
+.hero h1.section__title {
   padding-top: 60px;
 }
 .section {
   padding: 0 16px;
   text-align: center;
 }
-.section__title {
+h1.section__title {
   font-size: 1.5rem;
   font-weight: bold;
 }
@@ -51,6 +51,9 @@ body {
   padding-bottom: 0;
   max-width: 320px;
   margin: 10px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .card__title {
   font-size: 18px;
@@ -273,40 +276,34 @@ body {
   padding-left: 0;
 }
 .hotspot__maps__bar li {
-  position: relative;
-  padding-top: 16px;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
   padding-top: 0;
   margin-top: 16px;
 }
 
-.hotspot__maps__bar ol li label {
-  font-weight: bold;
-}
-
 .hotspot__maps__bar .progress__bar {
-  flex: 1;
   height: 8px;
   background-color: #e6e6e6;
   margin-left: 0;
-  flex-basis: 100%;
 }
 .hotspot__maps__bar .progress {
   background-color: var(--aqua);
   height: 8px;
 }
-.hotspot__maps__bar li label::before {
+
+.hotspot__maps__bar li .city__name::before {
   counter-increment: list-marker;
-  content: counter(list-marker) ".  ";
+  content: counter(list-marker) ". ";
   font-weight: bold;
 }
-.hotspot__maps__bar li span {
-  position: absolute;
-  top: 0;
-  display: block;
-  right: 0;
+.hotspot__maps__bar li p {
+  display: flex;
+  margin-bottom: 10px;
+}
+.hotspot__maps__bar li .city__name {
+  font-weight: bold;
+  margin-right: auto;
+}
+.hotspot__maps__bar li .total__reports {
   color: #808080;
   font-size: 12px;
 }
@@ -323,7 +320,7 @@ body {
   max-width: 600px;
   padding: 0;
 }
-.contact__wrapper .section__title {
+.contact__wrapper h1.section__title {
   font-size: 2.5rem;
   margin-top: 0;
   margin-bottom: 0;
@@ -408,7 +405,7 @@ body {
 /*Responsive design*/
 
 @media (min-width: 768px) {
-  .section__title {
+  h1.section__title {
     font-size: 2.5rem;
   }
   .section__text {
@@ -417,7 +414,7 @@ body {
     max-width: 740px;
     font-size: 14px;
   }
-  .hero .section__title {
+  .hero h1.section__title {
     padding-top: 100px;
   }
   .card__section__wrapper {
@@ -448,19 +445,15 @@ body {
     margin-bottom: 32px;
     max-width: 80%;
     box-shadow: 3px 3px 3px 3px rgb(0, 0, 0, 0.05);
-    max-width: 1325px;
+    max-width: 1050px;
   }
 
   .myChart {
     max-width: 90%;
     min-width: 90%;
   }
-  .chart__wrapper {
-    max-width: 90%;
-  }
 
   .chart__title {
-    max-width: 90%;
     padding: 2rem 5rem;
   }
   .calls__received__wrapper {
@@ -473,15 +466,11 @@ body {
   .hotspot__maps__map {
     order: 2;
   }
-  .hotspot__maps__bar .progress__bar {
-    margin-left: 14px;
-    flex: 1;
-  }
 
   .hotspot__maps__bar {
-    max-width: 40%;
+    max-width: 45%;
+
     flex: 1;
-    order: 1;
     padding-top: 30px;
   }
 
@@ -502,6 +491,9 @@ body {
     margin-left: 10px;
   }
   .contact__wrapper .wrapper {
+    text-align: left;
+  }
+  .contact__wrapper .wrapper h1 {
     text-align: left;
   }
 
