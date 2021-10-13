@@ -177,7 +177,8 @@ h1.section__title {
   transform: translateX(calc(-50% + 3px));
 }
 
-.circle:hover .circle__popup {
+.circle:hover .circle__popup,
+.circle:active .circle__popup {
   display: inline-block;
 }
 .circle__popup p {
