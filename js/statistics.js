@@ -507,7 +507,6 @@ for (i = 0; i < reports.length; i++) {
   reports[i].setAttribute("style", `width:${barPercentage[i]}%`);
 }
 
-const mapWrapper = document.querySelector(".hotspot__maps__region__wrapper");
 document.onclick = function (event) {
   if (!event.target.classList.contains("circle")) {
     mapCirclePopup.forEach((circle) => circle.classList.remove("popup__show"));
@@ -516,8 +515,6 @@ document.onclick = function (event) {
 const mapCircles = document.querySelectorAll(".circle");
 const mapCirclePopup = document.querySelectorAll(".circle__popup");
 
-console.log(mapCircles);
-console.log(mapCirclePopup);
 for (let i = 0; i < mapCircles.length; i++) {
   mapCircles[i].addEventListener("mouseover", function () {
     mapCirclePopup[i].classList.add("popup__show");
