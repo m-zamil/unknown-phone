@@ -519,7 +519,8 @@ for (let i = 0; i < mapCircles.length; i++) {
   mapCircles[i].addEventListener("mouseout", function () {
     mapCirclePopup[i].style.display = "none";
   });
-  mapCircles[i].addEventListener("click", function () {
-    mapCirclePopup[i].style.display = "inline-block";
-  });
+  // mapCircles[i].addEventListener("click", function () {
+  //   // mapCirclePopup[i].style.display = "inline-block";
+  //   mapCirclePopup[i].classList.toggle("popup__show");
+  // });
 }
