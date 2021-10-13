@@ -506,3 +506,20 @@ const reports = document.getElementsByClassName("progress");
 for (i = 0; i < reports.length; i++) {
   reports[i].setAttribute("style", `width:${barPercentage[i]}%`);
 }
+
+const mapCircles = document.querySelectorAll(".circle");
+const mapCirclePopup = document.querySelectorAll(".circle__popup");
+
+console.log(mapCircles);
+console.log(mapCirclePopup);
+for (let i = 0; i < mapCircles.length; i++) {
+  mapCircles[i].addEventListener("mouseover", function () {
+    mapCirclePopup[i].style.display = "inline-block";
+  });
+  mapCircles[i].addEventListener("mouseout", function () {
+    mapCirclePopup[i].style.display = "none";
+  });
+  mapCircles[i].addEventListener("click", function () {
+    mapCirclePopup[i].style.display = "inline-block";
+  });
+}

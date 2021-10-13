@@ -177,9 +177,15 @@ h1.section__title {
   transform: translateX(calc(-50% + 3px));
 }
 
-.circle:hover .circle__popup,
+/* .circle:hover .circle__popup,
 .circle:active .circle__popup {
   display: inline-block;
+} */
+.popup__show {
+  display: inline-block;
+}
+.popup__hide {
+  display: none;
 }
 .circle__popup p {
   margin: 0;
