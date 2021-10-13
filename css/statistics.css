@@ -184,9 +184,7 @@ h1.section__title {
 .popup__show {
   display: inline-block;
 }
-.popup__hide {
-  display: none;
-}
+
 .circle__popup p {
   margin: 0;
   padding-bottom: 10px;
